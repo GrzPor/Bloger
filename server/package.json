@@ -1,0 +1,20 @@
+{
+  "name": "Bloger",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/GrzPor/Bloger.git",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "build": "node server.js",
+    "format": "prettier --write routes/posts.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14",
+    "prettier": "^2.4.1"
+  }
+}
