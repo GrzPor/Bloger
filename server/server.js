@@ -1,4 +1,5 @@
 const express = require("express")
+const cors = require("cors")
 const mongoose = require("mongoose")
 const app = express()
 const postsRouter = require("./routes/posts")
@@ -11,6 +12,7 @@ db.on("error", (err) => console.error(err))
 db.once("open", () => console.log("Database connected successfully"))
 
 app.use(express.json())
+app.use(cors())
 app.use("/posts", postsRouter)
 
 app.get("/", (req, res) => {
