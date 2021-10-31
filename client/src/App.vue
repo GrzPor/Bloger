@@ -1,27 +1,14 @@
-<template>
-	<div id="app">
-		<Posts />
-	</div>
+<template lang="pug">
+	#app(class="bg-gray-200")
+		.container(class="px-4 mx-auto")
+			router-view
 </template>
 
 <script>
-import Posts from './components/Posts';
 
 export default {
 	name: 'App',
-	components: {
-		Posts,
-	},
 };
 </script>
 
-<style>
-#app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-	margin-top: 60px;
-}
-</style>
+<style></style>
