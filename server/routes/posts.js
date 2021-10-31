@@ -13,8 +13,13 @@ router.get("/", async (req, res) => {
 })
 
 // Get one post
-router.get("/:id", (req, res) => {
-
+router.get("/:id", async (req, res) => {
+    try {
+        const post = await postModel.findById(req.params.id)
+        res.status(200).json(post)
+    } catch (err) {
+        res.status(404).json({ message: err })
+    }
 })
 
 // Create one post
@@ -39,7 +44,12 @@ router.put("/:id", (req, res) => {
 })
 
 // Delete one post
-router.delete("/:id", (req, res) => {
-
+router.delete("/:id", async (req, res) => {
+    try {
+        await postModel.findByIdAndDelete(req.params.id)
+        res.status(200).send("Post usuniety")
+    } catch(err) {
+        res.status(500).json({ message: err })
+    }
 })
 module.exports = router
