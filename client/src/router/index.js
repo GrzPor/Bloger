@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Posts from '../components/Posts'
 import CreatePost from '../components/CreatePost'
 import DetailPost from '../components/DetailPost'
+import EditPost from '../components/EditPost'
 
 Vue.use(VueRouter)
 
@@ -26,6 +27,12 @@ export default new VueRouter({
             path: "/post/:id",
             name: "single-post",
             component: DetailPost,
+            props: true,
+        },
+        {
+            path: "/post/edit/:id",
+            name: "editPost",
+            component: EditPost,
             props: true,
         }
     ]

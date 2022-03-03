@@ -1,5 +1,5 @@
 <template lang="pug">
-	#app(class="bg-gray-200")
+	#app(class="bg-white h-screen font-roboto")
 		.container(class="px-4 mx-auto")
 			router-view
 </template>
@@ -10,5 +10,3 @@ export default {
 	name: 'App',
 };
 </script>
-
-<style></style>
