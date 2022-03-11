@@ -1,22 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Posts from '../components/Posts'
-import CreatePost from '../components/CreatePost'
-import DetailPost from '../components/DetailPost'
-import EditPost from '../components/EditPost'
+import PostsList from '../views/PostsList'
+import CreatePost from '../views/CreatePost'
+import DetailPost from '../views/DetailPost'
+import EditPost from '../views/EditPost'
 
 Vue.use(VueRouter)
 
 export default new VueRouter({
     routes: [
-        { 
+        {
             path: "/",
             redirect: "/posts"
         },
         {
             path: "/posts",
-            name: "posts", 
-            component: Posts
+            name: "posts",
+            component: PostsList
         },
         {
             path: "/posts/create",
