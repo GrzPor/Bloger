@@ -39,8 +39,19 @@ router.post("/", async (req, res) => {
 })
 
 // Update one post
-router.put("/:id", (req, res) => {
-
+router.put("/:id", async (req, res) => {
+    const updateData = {
+        title: req.body.title,
+        descripton: req.body.descripton,
+        tags: req.body.tags,
+        categories: req.body.categories
+    }
+    try {
+        const update = await postModel.findByIdAndUpdate(req.params.id, updateData, { new: true })
+        res.status(200).json(update)
+    } catch (err) {
+        res.status(400).json({ message: err })
+    }
 })
 
 // Delete one post
