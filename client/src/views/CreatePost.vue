@@ -4,8 +4,8 @@
 		.grid.grid-cols-2.gap-4
 			BaseInput(title="Tytul" v-model="title")
 			BaseInput(title="Tagi" v-model="tags")
-			BaseSelect(title="Kategories" v-model="categories" :options="allCategories")
-			BaseTextarea(title="Opis" v-model="description")
+			BaseSelect(title="Kategories" v-model="categories" :options="allCategories" bigger)
+			BaseTextarea(title="Opis" v-model="description" bigger)
 			Errors(:errors="errors")
 			.flex.justify-end.mt-4(:class="{'col-span-2': !errors.length, 'items-start': errors.length}")
 				button(
@@ -28,7 +28,7 @@ export default {
 			description: null,
 			tags: null,
 			categories: null,
-			allCategories: ['Front-end', 'Back-end', 'Design', 'Project management', 'Testing', 'Others'],
+			allCategories: ['All', 'Front-end', 'Back-end', 'Design', 'Project management', 'Testing', 'Others'],
 			errors: [],
 		}
 	},
