@@ -11,6 +11,10 @@ export const baseFormElements = {
         required: {
             type: Boolean,
             default: true,
+        },
+        bigger: {
+            type: Boolean,
+            default: false,
         }
     },
     methods: {

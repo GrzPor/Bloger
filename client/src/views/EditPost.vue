@@ -28,7 +28,7 @@ import { formatDate } from '../mixins/formatDate'
         data() {
             return {
                 singlePost: {},
-                allCategories: ['Front-end', 'Back-end', 'Design', 'Project management', 'Testing', 'Others'],
+                allCategories: ['All', 'Front-end', 'Back-end', 'Design', 'Project management', 'Testing', 'Others'],
                 errors: [],
             }
         },
