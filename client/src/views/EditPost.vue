@@ -14,7 +14,8 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { getPost, updatePost } from '../services/axios'
+
     export default {
         props: ["id"],
         data() {
@@ -23,25 +24,22 @@ import axios from 'axios';
             }
         },
         mounted() {
-            axios.get(`http://localhost:8080/posts/${this.id}`)
-                .then(res => {
-                    this.singlePost = res.data
-                });
+            getPost(this.id)
+                .then(res => this.singlePost = res.data);
         },
         methods: {
             updatePost() {
-                axios.put(`http://localhost:8080/posts/${this.id}`, {
+                const newData = {
                     title: this.singlePost.title,
                     descripton: this.singlePost.descripton,
                     tags: this.singlePost.tags,
                     categories: this.singlePost.categories
-                })
-                .then(() => {
-                    this.$router.push({ name: 'posts' })
-                })
-                .catch ((err) => {
-                    console.log(err.message)
-                })
+                }
+                updatePost(this.id, newData)
+                    .then(() => this.$router.push({ name: 'posts' }))
+                    .catch ((err) => {
+                        console.log(`There was some problem in update post: ${err.message}`)
+                    })
             }
         }
     }
