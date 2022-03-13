@@ -1,7 +1,8 @@
 <template lang="pug">
     label.block
         span.text-xs.text-black.font-medium.uppercase(v-html="title")
-        input(
+        span.ml-1.text-green-500(v-if="required") *
+        input.h-10(
             type="text"
             :value="value"
             @input="updateData($event)"
