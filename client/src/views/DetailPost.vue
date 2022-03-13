@@ -1,11 +1,6 @@
 <template lang="pug">
-.py-4
-	.flex.justify-between.items-center.mb-12
-		h1.text-4xl Details of post with id: {{ id }}
-		router-link(
-			:to="{ name: 'posts' }"
-			class="p-2 rounded-lg text-white bg-yellow-500 hover:bg-yellow-700 transition-colors duration-500 uppercase font-bold"
-		) Back to all posts  
+.py-8
+	BaseNavigation(:title="'Details of post with id: ' + id")
 	div
 		p(v-html="singlePost.title")
 		p(v-html="singlePost.descripton")
@@ -33,10 +28,6 @@ export default {
 				this.singlePost = res.data
 			});
 	}
-    
+
 }
 </script>
-
-<style>
-
-</style>
