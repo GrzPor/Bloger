@@ -1,8 +1,7 @@
 <template lang="pug">
     label.block
         span.text-xs.text-black.font-medium.uppercase(v-html="title")
-        input(
-            type="text"
+        textarea(
             :value="value"
             @input="updateData($event)"
             class="mt-1 block w-full rounded-sm border-black shadow-md focus:border-green-500"
@@ -11,7 +10,6 @@
 
 <script>
 import { baseFormElements } from '../mixins/baseFormElements'
-
     export default {
         mixins: [baseFormElements]
     }

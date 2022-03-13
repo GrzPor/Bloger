@@ -3,9 +3,9 @@
         BaseNavigation(:title="'Edit post: ' + singlePost.title")
         .grid.grid-cols-2.gap-4
             BaseInput(title="Tytul" v-model="singlePost.title")
-            BaseInput(title="Opis" v-model="singlePost.descripton")
             BaseInput(title="Tagi" v-model="singlePost.tags")
-            BaseInput(title="Kategorie" v-model="singlePost.categories")
+            BaseSelect(title="Kategories" v-model="singlePost.categories" :options="allCategories")
+            BaseTextarea(title="Opis" v-model="singlePost.descripton")
             .flex.justify-end.col-span-2
                 button(
                     @click="updatePost"
@@ -21,6 +21,7 @@ import { getPost, updatePost } from '../services/axios'
         data() {
             return {
                 singlePost: {},
+                allCategories: ['Front-end', 'Back-end', 'Design', 'Project management', 'Testing', 'Others']
             }
         },
         mounted() {
