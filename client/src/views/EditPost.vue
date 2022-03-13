@@ -17,8 +17,10 @@
 <script>
 import { getPost, updatePost } from '../services/axios'
 import Errors from '../components/Errors'
+import { formatDate } from '../mixins/formatDate'
 
     export default {
+        mixins: [formatDate],
         components: {
             Errors,
         },
@@ -42,7 +44,8 @@ import Errors from '../components/Errors'
                         title: this.singlePost.title,
                         descripton: this.singlePost.descripton,
                         tags: this.singlePost.tags,
-                        categories: this.singlePost.categories
+                        categories: this.singlePost.categories,
+                        edited: this.euFormatDate(new Date())
                     }
                     updatePost(this.id, newData)
                         .then(() => this.$router.push({ name: 'posts' }))

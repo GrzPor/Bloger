@@ -44,7 +44,8 @@ router.put("/:id", async (req, res) => {
         title: req.body.title,
         descripton: req.body.descripton,
         tags: req.body.tags,
-        categories: req.body.categories
+        categories: req.body.categories,
+        edited: req.body.edited,
     }
     try {
         const update = await postModel.findByIdAndUpdate(req.params.id, updateData, { new: true })
