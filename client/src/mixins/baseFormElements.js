@@ -7,6 +7,10 @@ export const baseFormElements = {
         title: {
             type: String,
             default: null,
+        },
+        required: {
+            type: Boolean,
+            default: true,
         }
     },
     methods: {
