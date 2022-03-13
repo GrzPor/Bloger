@@ -13,8 +13,8 @@
 
 <script>
 
-import axios from 'axios';
 import { formatDate } from '../mixins/formatDate';
+import { getPost } from '../services/axios'
 
 export default {
 	mixins: [formatDate],
@@ -25,10 +25,8 @@ export default {
 		}
 	},
 	mounted() {
-		axios.get(`http://localhost:8080/posts/${this.id}`)
-			.then(res => {
-				this.singlePost = res.data
-			});
+		getPost(this.id)
+			.then(res => this.singlePost = res.data);
 	}
 
 }

@@ -9,8 +9,8 @@
 
 <script>
 
-import axios from 'axios';
 import Post from '../components/Post.vue'
+import { getPosts } from '../services/axios'
 
 export default {
     components: {
@@ -27,9 +27,8 @@ export default {
 		};
 	},
 	mounted() {
-		axios.get('http://localhost:8080/posts').then(res => {
-			this.posts = res.data;
-		});
+		getPosts()
+			.then(res => this.posts = res.data );
 	},
 };
 </script>

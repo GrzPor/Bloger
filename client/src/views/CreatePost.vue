@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { createPost } from '../services/axios'
 
 export default {
 	data() {
@@ -27,25 +27,17 @@ export default {
 	},
 	methods: {
 		createPost() {
-			axios.post('http://localhost:8080/posts', {
+			const obj = {
 				"title": this.title,
 				"descripton": this.description,
 				"tags": this.tags,
 				"categories": this.categories
-			})
-			.then((res) => {
-				console.log('qwe0');
-				console.log(res);
-			})
-			.catch((err) => {
-				console.log('qwe1');
-				console.log(`post request error: ${err}`)
-			})
-			.finally(() => {
-				console.log('qwe2')
-				console.log(this.$router);
-				this.$router.push({ name: "posts" })
-			});
+			}
+			createPost(obj)
+				.then(() => this.$router.push({ name: "posts" }))
+				.catch((err) => {
+					console.log(`Post request error: ${err.message}`)
+				})
 		}
 	}
 }

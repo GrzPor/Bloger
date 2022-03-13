@@ -24,9 +24,9 @@
 
 <script>
 
-import axios from 'axios';
 import PostOption from './PostOption.vue';
 import { formatDate } from '../mixins/formatDate';
+import { deletePost } from '../services/axios'
 
 export default {
 	mixins: [formatDate],
@@ -41,10 +41,8 @@ export default {
 	},
 	methods: {
 		deletePost(id) {
-			axios.delete(`http://localhost:8080/posts/${id}`)
-				.then(() => {
-					this.$router.go(0)
-				})
+			deletePost(id)
+				.then(() => this.$router.go(0))
 		},
 	},
 
