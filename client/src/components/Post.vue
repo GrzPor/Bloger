@@ -1,6 +1,6 @@
 <template lang="pug">
 	.shadow-lg.bg-white.rounded-lg.p-8
-		h3.text-2xl.font-bold.mb-1(v-html="post.title")
+		h3.text-2xl.font-bold.mb-1.truncate(v-html="post.title")
 		p.text-lg.font-semibold.truncate(v-html="post.descripton")
 		.text-sm.mt-8
 			PostOption(title="Tags:" :data="post.tags")
