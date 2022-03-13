@@ -6,7 +6,7 @@
 		p(v-html="singlePost.descripton")
 		p(v-html="singlePost.tags")
 		p(v-html="singlePost.categories")
-		p(v-html="singlePost.createdAt")
+		p(v-html="euFormatDate(singlePost.createdAt)")
 		p(v-html="singlePost.author")
 
 </template>
@@ -14,8 +14,10 @@
 <script>
 
 import axios from 'axios';
+import { formatDate } from '../mixins/formatDate';
 
 export default {
+	mixins: [formatDate],
 	props: ["id"],
 	data() {
 		return {

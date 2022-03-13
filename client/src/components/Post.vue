@@ -5,7 +5,7 @@
 		.text-sm.mt-8
 			PostOption(title="Tags:" :data="post.tags")
 			PostOption(title="Categories:" :data="post.categories")
-			PostOption(title="Created:" :data="post.createdAt")
+			PostOption(title="Created:" :data="euFormatDate(post.createdAt)")
 			PostOption(title="Created by:" :data="post.author")
 		.mt-8
 			router-link(
@@ -25,9 +25,11 @@
 <script>
 
 import axios from 'axios';
-import PostOption from './PostOption.vue'
+import PostOption from './PostOption.vue';
+import { formatDate } from '../mixins/formatDate';
 
 export default {
+	mixins: [formatDate],
 	components: {
 		PostOption,
 	},
@@ -43,7 +45,8 @@ export default {
 				.then(() => {
 					this.$router.go(0)
 				})
-		}
-	}
+		},
+	},
+
 };
 </script>
