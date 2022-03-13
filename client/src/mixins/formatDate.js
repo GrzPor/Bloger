@@ -5,11 +5,7 @@ export const formatDate = {
 		},
 		euFormatDate(date) {
 			const formatDate = new Date(date);
-			return `
-				${this.fillNumbersWithZero(formatDate.getDate())} -
-				${this.fillNumbersWithZero((formatDate.getMonth() + 1))} -
-				${formatDate.getFullYear()}
-			`
+			return `${this.fillNumbersWithZero(formatDate.getDate())} - ${this.fillNumbersWithZero((formatDate.getMonth() + 1))} - ${formatDate.getFullYear()}`
 		}
 	},
 }

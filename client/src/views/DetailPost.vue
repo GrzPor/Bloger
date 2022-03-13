@@ -7,6 +7,7 @@
 		p(v-html="singlePost.tags")
 		p(v-html="singlePost.categories")
 		p(v-html="euFormatDate(singlePost.createdAt)")
+		p(v-if="singlePost.edited" v-html="singlePost.edited")
 		p(v-html="singlePost.author")
 
 </template>

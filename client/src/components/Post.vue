@@ -6,6 +6,7 @@
 			PostOption(title="Tags:" :data="post.tags")
 			PostOption(title="Categories:" :data="post.categories")
 			PostOption(title="Created:" :data="euFormatDate(post.createdAt)")
+			PostOption(v-if="post.edited" title="Last edit:" :data="post.edited")
 			PostOption(title="Created by:" :data="post.author")
 		.mt-8
 			router-link(
