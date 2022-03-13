@@ -6,7 +6,7 @@ const postsRouter = require("./routes/posts")
 
 const PORT = 8080
 
-mongoose.connect("mongodb+srv://terson:qweqwe@cluster0.j0mtd.mongodb.net/Bloger?retryWrites=true&w=majority")
+mongoose.connect(`mongodb+srv://${process.env.LOGIN}:${process.env.PASSWORD}@cluster0.j0mtd.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
 const db = mongoose.connection
 db.on("error", (err) => console.error(err))
 db.once("open", () => console.log("Database connected successfully"))

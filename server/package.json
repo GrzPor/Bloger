@@ -5,12 +5,13 @@
   "repository": "https://github.com/GrzPor/Bloger.git",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "env-cmd -f devel.env --no-override nodemon server.js",
     "build": "node server.js",
     "format": "prettier --write routes/posts.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "env-cmd": "^10.1.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.12"
   },
