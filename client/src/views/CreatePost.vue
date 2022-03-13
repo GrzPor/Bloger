@@ -3,9 +3,9 @@
 		BaseNavigation(title="Create a new Post")
 		.grid.grid-cols-2.gap-4
 			BaseInput(title="Tytul" v-model="title")
-			BaseInput(title="Opis" v-model="description")
 			BaseInput(title="Tagi" v-model="tags")
-			BaseInput(title="Kategories" v-model="categories")
+			BaseSelect(title="Kategories" v-model="categories" :options="allCategories")
+			BaseTextarea(title="Opis" v-model="description")
 			.flex.justify-end.col-span-2.mt-4
 				button(
 					@click="createPost"
@@ -23,6 +23,7 @@ export default {
 			description: null,
 			tags: null,
 			categories: null,
+			allCategories: ['Front-end', 'Back-end', 'Design', 'Project management', 'Testing', 'Others']
 		}
 	},
 	methods: {
