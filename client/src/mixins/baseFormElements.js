@@ -15,11 +15,11 @@ export const baseFormElements = {
         bigger: {
             type: Boolean,
             default: false,
-        }
+        },
     },
     methods: {
         updateData(event) {
-            this.$emit('input', event.target.value)
-        }
-    }
-}
+            this.$emit('input', event.target.value);
+        },
+    },
+};

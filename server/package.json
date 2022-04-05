@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "env-cmd -f devel.env --no-override nodemon server.js",
-    "build": "node server.js",
+    "build": "env-cmd -f devel.env --no-override node server.js",
     "format": "prettier --write routes/posts.js"
   },
   "dependencies": {

@@ -12,15 +12,15 @@
 </template>
 
 <script>
-import { baseFormElements } from '../mixins/baseFormElements'
+import { baseFormElements } from '../mixins/baseFormElements';
 
-    export default {
-        mixins: [baseFormElements],
-        props: {
-            options: {
-                type: Array,
-                default: () => []
-            },
-        }
-    }
+export default {
+    mixins: [baseFormElements],
+    props: {
+        options: {
+            type: Array,
+            default: () => [],
+        },
+    },
+};
 </script>

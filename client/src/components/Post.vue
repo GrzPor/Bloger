@@ -1,7 +1,7 @@
 <template lang="pug">
-	.flex.flex-col.shadow-lg.bg-white.rounded-lg.p-8.h-80
-		h3.text-2xl.font-bold.mb-1.truncate(v-html="post.title")
-		p.text-lg.font-semibold.truncate(v-html="post.descripton")
+	article.flex.flex-col.shadow-lg.bg-white.rounded-lg.p-8.h-80
+		h2.font-bold.mb-1.truncate(v-html="post.title" class="text-xl md:text-2xl")
+		p.font-semibold.truncate(v-html="post.descripton" class="text md:text-lg")
 		.text-sm.mt-8
 			PostOption(title="Tags:" :data="post.tags")
 			PostOption(title="Categories:" :data="post.categories")
@@ -26,57 +26,54 @@
 </template>
 
 <script>
-
 import PostOption from './PostOption.vue';
 import { formatDate } from '../mixins/formatDate';
-import { deletePost } from '../services/axios'
+import { deletePost } from '../services/axios';
 
 export default {
-	mixins: [formatDate],
-	components: {
-		PostOption,
-	},
-	props: {
-		post: {
-			type: Object,
-			default: () => {}
-		}
-	},
-	data() {
-		return {
-			showSpinner: false,
-		}
-	},
-	methods: {
-		deletePost(id) {
-			this.showSpinner = true
-			deletePost(id)
-				.then(() => this.$router.go(0))
-		},
-	},
-
+    mixins: [formatDate],
+    components: {
+        PostOption,
+    },
+    props: {
+        post: {
+            type: Object,
+            default: () => {},
+        },
+    },
+    data() {
+        return {
+            showSpinner: false,
+        };
+    },
+    methods: {
+        deletePost(id) {
+            this.showSpinner = true;
+            deletePost(id).then(() => this.$router.go(0));
+        },
+    },
 };
 </script>
 
 <style lang="scss" scoped>
 @keyframes spinner {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 .spinner {
-	width: 15px;
-	height: 15px;
-	display: block;
-	border-radius: 50%;
-	border: 2px solid #fff;
-	border-left: 2px solid rgba(255, 255, 255, 0.5);
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	animation: spinner 1s infinite linear;
+    width: 15px;
+    height: 15px;
+    display: block;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: spinner 1s infinite linear;
 }
 </style>

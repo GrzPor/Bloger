@@ -1,6 +1,6 @@
 <template lang="pug">
     .flex.justify-between.items-start.mb-12
-        h1.text-4xl.font-bold(v-html="title")
+        h1.font-bold(v-html="title" class="text-2xl md:text-4xl")
         router-link(
             :to="{ name: btnUrl }"
             v-html="btnTitle"
@@ -9,20 +9,20 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            title: {
-                type: String,
-                default: null,
-            },
-            btnUrl: {
-                type: String,
-                default: 'posts',
-            },
-            btnTitle: {
-                type: String,
-                default: 'Back to all posts',
-            },
-        }
-    }
+export default {
+    props: {
+        title: {
+            type: String,
+            default: null,
+        },
+        btnUrl: {
+            type: String,
+            default: 'posts',
+        },
+        btnTitle: {
+            type: String,
+            default: 'Back to all posts',
+        },
+    },
+};
 </script>

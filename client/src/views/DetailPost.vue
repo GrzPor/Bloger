@@ -2,7 +2,7 @@
 .py-8
 	BaseNavigation(title="Post details")
 	div
-		h3.text-2xl.font-semibold(v-html="singlePost.title")
+		h2(v-html="singlePost.title" class="text-xl md:text-2xl font-semibold")
 		.mt-4.text-sm.font-semibold
 			div
 				span.text-black Last edited:
@@ -21,26 +21,23 @@
 				.mr-2
 					span.text-black Kategorie:
 					span.ml-1.text-green-500(v-html="singlePost.categories")
-		.mt-2.text-xl.font-regular.leading-relaxed(v-html="singlePost.descripton")
+		p(v-html="singlePost.descripton" class="text md:text-xl mt-2 font-regular leading-relaxed")
 </template>
 
 <script>
-
 import { formatDate } from '../mixins/formatDate';
-import { getPost } from '../services/axios'
+import { getPost } from '../services/axios';
 
 export default {
-	mixins: [formatDate],
-	props: ["id"],
-	data() {
-		return {
-			singlePost: {},
-		}
-	},
-	mounted() {
-		getPost(this.id)
-			.then(res => this.singlePost = res.data);
-	}
-
-}
+    mixins: [formatDate],
+    props: ['id'],
+    data() {
+        return {
+            singlePost: {},
+        };
+    },
+    mounted() {
+        getPost(this.id).then(res => (this.singlePost = res.data));
+    },
+};
 </script>

@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import { baseFormElements } from '../mixins/baseFormElements'
+import { baseFormElements } from '../mixins/baseFormElements';
 
-    export default {
-        mixins: [baseFormElements]
-    }
+export default {
+    mixins: [baseFormElements],
+};
 </script>

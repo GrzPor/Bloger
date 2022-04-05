@@ -6,12 +6,12 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            errors: {
-                type: Array,
-                default: () => [],
-            },
-        }
-    }
+export default {
+    props: {
+        errors: {
+            type: Array,
+            default: () => [],
+        },
+    },
+};
 </script>
