@@ -1,0 +1,22 @@
+{
+  "name": "Bloger",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/GrzPor/Bloger.git",
+  "license": "MIT",
+  "scripts": {
+    "dev": "env-cmd -f devel.env --no-override nodemon server.js",
+    "build": "env-cmd -f devel.env --no-override node server.js",
+    "format": "prettier --write routes/posts.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14",
+    "prettier": "^2.4.1"
+  }
+}
